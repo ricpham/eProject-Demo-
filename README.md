@@ -17,8 +17,7 @@ Project title: Gift Shop
 
 ============================
 
-eProject published at https://iamnht.github.io/eProject-GiftShop/
-
+Published: https://iamnht.github.io/eProject-Demo-/
 ============================
 
 Thank you for spending your time to look at our work.
