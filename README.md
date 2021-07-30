@@ -1,8 +1,8 @@
 # FPT-eProject
 
-Batch no.:  T1.2104.E0
-
 Project title: Gift Shop
+
+Class:  T1.2104.E0
 
 ========> Group 2 <=========
 
@@ -14,10 +14,8 @@ Project title: Gift Shop
              
 ============================
 
-
-============================
-
 Published: https://iamnht.github.io/eProject-Demo-/
+
 ============================
 
 Thank you for spending your time to look at our work.
