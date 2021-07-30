@@ -42,19 +42,31 @@ $(document).ready(function()
             showImage(data);
         });
 
+        //Modal click imgae
+        $(document).on("click",".element_gifts",function() 
+        {
+            
+            let id = $(this).data("id");
+            
+            let product = data.filter(ele => ele.pdid == id);
+           
+            showModal(product[0]);
+            $("#showModal").modal("show");
+        });
+
         //FILTER BY BRANDS
 
-        $("input[type=checkbox]").click(function()
-        {
-          let check = $("#check-brands:checked").map(function()
-          {
-            return $(this).val()
-          }).toArray().toString();
+        // $("input[type=checkbox]").click(function()
+        // {
+        //   let check = $("#check-brands:checked").map(function()
+        //   {
+        //     return $(this).val()
+        //   }).toArray().toString();
 
-          let subdata = (check.length==0)?data: data.filter(item => check.search(item.pdbrand) >= 0);
-                
-          showImage(subdata); 
-        });
+        //   let subdata = (check.length==0)?data: data.filter(item => check.search(item.pdbrand) >= 0);
+      
+        //   showImage(subdata); 
+        // });
     });
 
 function showImage(items)
@@ -63,7 +75,7 @@ function showImage(items)
   
   $.each(items, function(e,json)
   {
-    s += `<div class="element_gifts" data-id="${json.pdid}" data-item="${json.pdcatogery}">
+    s += `<div class="element_gifts" data-id="${json.pdid}" data-item="${json.pdcatogery}" data-brand="${json.pdbrand}">
           <img src="${json.pdimage}" alt="">
           <p>
             name: ${json.pdname} <br>
@@ -78,71 +90,51 @@ function showImage(items)
 }
 // END JSON CODE
 
+//Modal
+function showModal(json)
+{
+    let s = `
+    <div class="row">
+        <div class="col-md-8">
+            <div><img src="${json.pdimage}" style="width: 100%;"  alt=""></div>
+        </div>
+        <div class="col-md-4">
+            <h3><b>${json.pdname}</b></h3>
+            <h4><b>Price:</b> ${json.pdprice}</h4>
+            <h4><b>ID:</b> ${json.pdid}</h4>
+            <h4><b>Catogery:</b> ${json.pdcatogery}</h4>
+            <h4>Brands: ${json.pdbrand}</h4>
+            <h4>Material: ${json.pdmaterial}</h4>
+            <h4>Color: ${json.pdcolor}</h4>
+            <h4>Size: ${json.pdsize}</h4>
+            <h4>Weight: ${json.pdweight}</h4>
+            <h4>Package: ${json.pdpackage}</h4>
+            <h4>Details: ${json.pdspec}</h4>
+            
+        </div>
+    </div>           
+    `;
+    
+    $('.modal-body').html(s);
 
+}
 
+//START FILTER CATEGORIES
 
-
-//START CODE FILTER CATEGORIES
-
-// const filter_button = document.querySelectorAll("#filter_button .btn");
-// const element_gifts = document.querySelectorAll(".element_gifts");
-
-// //filter theo click chuột vào id#filter_button
-
-// filter_button.forEach(function(e)
-// {
-//     e.addEventListener("click",function(e1)
-//     {
-//         /* đổi màu đỏ dùng k khi click class red
-//         for(let i=0 ;i<filter_button.length;i++)
-//         {
-//             filter_button[i].classList.remove("red");
-//         }
-//         //chuyển màu khi click
-//         this.classList.add("red");
-//         */
-
-//         //sau khi click sẽ lấy data filter
-//         let button_filter = e1.target.dataset.filter;
-
-//         element_gifts.forEach(function(e2)
-//         {
-//             let element_filter = e2.dataset.item;
-//             if(button_filter === element_filter || button_filter === "all" ) 
-//             {
-//                 e2.style.display = "block";
-//             }
-//             else
-//             {
-//                 e2.style.display = "none";
-//             }
-//         });
-//     });
-   
-// });
 var element_gifts = document.querySelectorAll(".element_gifts");
 const filter_button = document.querySelectorAll("#filter_button .filter");
-//console.log(filter_button2);
+const filter_brand = document.querySelectorAll(".filter-brand");
+//console.log(filter_button);
 
 
-//filter theo click chuột vào id#filter_button
+//FILLTER BY EVENT CLICK id#filter_button
 
 filter_button.forEach(function(e)
 {
     e.addEventListener("click",function(e1)
     {
-        //element_gifts = document.querySelectorAll(".element_gifts");
-
-        /* đổi màu đỏ dùng k khi click class red
-        for(let i=0 ;i<filter_button.length;i++)
-        {
-            filter_button[i].classList.remove("red");
-        }
-        //chuyển màu khi click
-        this.classList.add("red");
-        */
-
-        //sau khi click sẽ lấy data filter
+      
+        //Click to get data filter
         let button_filter = e1.target.dataset.filter;
         //console.log(button_filter);
         element_gifts.forEach(function(e2)
@@ -151,6 +143,33 @@ filter_button.forEach(function(e)
             
 
             if(button_filter === element_filter || button_filter === "all" ) 
+            {
+                e2.style.display = "block";
+            }
+            else
+            {
+                e2.style.display = "none";
+            }
+        });
+    });
+   
+});
+
+//FILTER BY BRANDS
+filter_brand.forEach(function(e)
+{
+    e.addEventListener("click",function(e1)
+    {
+        
+        let button_brand = e1.target.dataset.filter;
+        //console.log(button_brand);
+        element_gifts.forEach(function(e2)
+        {
+            let element_filter = e2.dataset.brand;
+            //console.log(element_filter);
+            
+
+            if(button_brand === element_filter || button_brand === "all" ) 
             {
                 e2.style.display = "block";
             }
