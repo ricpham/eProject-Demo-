@@ -4,7 +4,7 @@ Project title: Gift Shop
 
 Class:  T1.2104.E0
 
-========> Group 2 <=========
+Group 2: 
 
 3 collaborators:
 
