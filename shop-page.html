@@ -21,14 +21,14 @@
             <div class="navbar"> 
                     <ul class="menu">
                         <li><a href="index.html">HOME</a></li>
-                        <li><a class="filter" href="shop-page.html" data-filter="all">SHOP<i class="icon glyphicon glyphicon-chevron-down"></i></a>
-                            <ul class="subnav" id="filter_button">
+                        <li><a class="filter" href="shop-page.html" data-filter="all">SHOP</a>
+                            <!-- <ul class="subnav" id="filter_button">
                                 <li><a class="filter" data-filter="MUG">Mugs</a></li>
                                 <li><a href="#" class="filter" data-filter="Jewelry" >Jewelries</a></li>
                                 <li><a href="#" class="filter" data-filter="CLOCK">Clocks</a></li>
                                 <li><a href="#" class="filter" data-filter="Stuffed animals" >Stuffed Animal</a></li>
                                 <li><a href="#" class="filter" data-filter="Perfume">Perfumes</a></li>
-                            </ul>
+                            </ul> -->
                         </li>                        
                         <li><a href="features.html">FEATURES</a></li>
                     <!-- Logo -->
@@ -69,41 +69,41 @@
                             <!-- Mug Item -->
                             <li class='sub-menu'><a class="filter" data-filter="MUG" href='#mugs'>Mugs<div class='fa fa-caret-down right'></div></a>
                                 <ul>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 1</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 2</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 3</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Clay Craft">Clay Craft</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="LaOpala">LaOpala</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Milton">Milton</a></li>
                                 </ul> 
                             </li>
                             <!-- Jewelries Item -->
                             <li class='sub-menu'><a class="filter" data-filter="Jewelry" href='#jewelries'>Jewelries<div class='fa fa-caret-down right'></div></a>
                                 <ul>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 1</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 2</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 3</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Jewels galaxy">Jewels galaxy</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Sukkhi">Sukkhi</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Zaveri Pearls">Zaveri Pearls</a></li>
                                 </ul>
                             </li>
                             <!-- Perfume Item -->
                             <li class='sub-menu'><a class="filter" data-filter="Perfume" href='#perfume'>Perfume<div class='fa fa-caret-down right'></div></a>
                                 <ul>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 1</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 2</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 3</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Axe">Axe</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Chanel">Chanel</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Miniso">Miniso</a></li>
                                 </ul>
                             </li>
                             <!-- Clock Item -->
                             <li class='sub-menu'><a class="filter" data-filter="CLOCK" href='#clock'>Clock<div class='fa fa-caret-down right'></div></a>
                                 <ul>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 1</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 2</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 3</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Ajanta">Ajanta</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Oreva">Oreva</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Solimo">Solimo</a></li>
                                 </ul>
                             </li>
                             <!-- Stuffed Animal -->
                             <li class='sub-menu'><a class="filter" data-filter="Stuffed animals" href='#animal'>Stuffed Animal<div class='fa fa-caret-down right'></div></a>
                                 <ul>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 1</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 2</a></li>
-                                    <li><a class="filter-brand pdbrand" id="check-brands">brand 3</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="BTC">BTC</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Click4deal">Click4deal</a></li>
+                                    <li><a class="filter-brand pdbrand" data-filter="Webby">Webby</a></li>
                                 </ul>
                             </li>
                        
@@ -115,15 +115,36 @@
 
             
 
-            <!-- Cột Sản phẩm -->
+            <!-- div#products show data json -->
             <div class="col-sm-8 col-md-8">
 
                     <div class="mid1" id="products">
 
-                        <div class="element_gifts" data-id="abc" data-item="MUG">
-                            <img src="product image/mugs/clay craft/M-CC-1.jpg">
+                        
+                    </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="showModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- div.modal-body include json data -->
+                    <div class="modal-body">
+                        <div class="row">
+                    
+                    
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="filter" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+
+                </div>
             </div>
     
 </div>
